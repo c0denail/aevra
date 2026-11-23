@@ -45,11 +45,11 @@ $changes = git status --porcelain
 if ($LASTEXITCODE -ne 0 -or $changes) { throw 'Önce kaynak değişikliklerini commit edin.' }
 $commit = git rev-parse HEAD
 if ($LASTEXITCODE -ne 0) { throw 'Commit bulunamadı.' }
-Invoke-Gh repo view $Repository --json nameWithOwner,url
+Invoke-Gh repo view $Repository --json 'nameWithOwner,url'
 $remoteCommit = Invoke-Gh api "repos/$Repository/commits/$commit" --jq '.sha'
 if ($remoteCommit -ne $commit) { throw 'Bu commit önce GitHub deposuna gönderilmeli.' }
-$releaseText = & $ghPath release view $tag --repo $Repository --json isDraft 2>$null
-if ($LASTEXITCODE -ne 0) {
+$releases = (Invoke-Gh api "repos/$Repository/releases?per_page=100") | ConvertFrom-Json
+if (-not ($releases | Where-Object tag_name -EQ $tag)) {
     Invoke-Gh release create $tag --repo $Repository --target $commit --title "Aevra $version" --notes-file $notes --draft
 }
 $release = (Invoke-Gh api "repos/$Repository/releases/tags/$tag") | ConvertFrom-Json
