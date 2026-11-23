@@ -49,11 +49,13 @@ Invoke-Gh repo view $Repository --json 'nameWithOwner,url'
 $remoteCommit = Invoke-Gh api "repos/$Repository/commits/$commit" --jq '.sha'
 if ($remoteCommit -ne $commit) { throw 'Bu commit önce GitHub deposuna gönderilmeli.' }
 $releases = (Invoke-Gh api "repos/$Repository/releases?per_page=100") | ConvertFrom-Json
-if (-not ($releases | Where-Object tag_name -EQ $tag)) {
+$release = $releases | Where-Object tag_name -EQ $tag | Select-Object -First 1
+if (-not $release) {
     Invoke-Gh release create $tag --repo $Repository --target $commit --title "Aevra $version" --notes-file $notes --draft
+    $releases = (Invoke-Gh api "repos/$Repository/releases?per_page=100") | ConvertFrom-Json
+    $release = $releases | Where-Object tag_name -EQ $tag | Select-Object -First 1
 }
-$release = (Invoke-Gh api "repos/$Repository/releases/tags/$tag") | ConvertFrom-Json
-if (-not $release.draft -or $release.target_commitish -ne $commit) { throw 'Sürüm yayımlanmış veya farklı commit ile oluşturulmuş; üzerine yazılmadı.' }
+if (-not $release -or -not $release.draft -or $release.target_commitish -ne $commit) { throw 'Sürüm yayımlanmış veya farklı commit ile oluşturulmuş; üzerine yazılmadı.' }
 foreach ($file in $checks) {
     $existing = $release.assets | Where-Object name -EQ $file.Name | Select-Object -First 1
     if ($existing) {
@@ -63,7 +65,7 @@ foreach ($file in $checks) {
         Invoke-Gh release upload $tag $file.Path --repo $Repository
     }
 }
-$release = (Invoke-Gh api "repos/$Repository/releases/tags/$tag") | ConvertFrom-Json
+$release = (Invoke-Gh api "repos/$Repository/releases/$($release.id)") | ConvertFrom-Json
 if (@($release.assets).Count -ne $checks.Count) { throw 'Release dosya sayısı beklenenden farklı.' }
 foreach ($file in $checks) {
     $asset = $release.assets | Where-Object name -EQ $file.Name | Select-Object -First 1
