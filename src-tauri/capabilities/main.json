@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "Aevra ana penceresi. Dosya, kabuk veya genel ağ eklentisi izni verilmez.",
+  "webviews": ["main"],
+  "permissions": ["core:default"]
+}

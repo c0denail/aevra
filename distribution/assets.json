@@ -1,0 +1,57 @@
+{
+  "model": {
+    "name": "Qwen3.5-9B Q4_K_M",
+    "repository": "bartowski/Qwen_Qwen3.5-9B-GGUF",
+    "revision": "182be2fd6c7bc44887d88a91cb03ff009cc9f549",
+    "file": "Qwen_Qwen3.5-9B-Q4_K_M.gguf",
+    "url": "https://huggingface.co/bartowski/Qwen_Qwen3.5-9B-GGUF/resolve/182be2fd6c7bc44887d88a91cb03ff009cc9f549/Qwen_Qwen3.5-9B-Q4_K_M.gguf",
+    "size": 6169341984,
+    "sha256": "d784ce9eda1a5a7b51e8f705a9e6310844bf4f173654d115823c775fdea56d43",
+    "license": "Apache-2.0",
+    "upstream": "https://huggingface.co/Qwen/Qwen3.5-9B"
+  },
+  "projector": {
+    "file": "mmproj-Qwen_Qwen3.5-9B-f16.gguf",
+    "url": "https://huggingface.co/bartowski/Qwen_Qwen3.5-9B-GGUF/resolve/182be2fd6c7bc44887d88a91cb03ff009cc9f549/mmproj-Qwen_Qwen3.5-9B-f16.gguf",
+    "size": 918165952,
+    "sha256": "97f420245a85ce129bb764e86a5e21e27d782fe6d6056c6839b9c5fdb8f38289",
+    "license": "Apache-2.0"
+  },
+  "pdfium": {
+    "version": "8152",
+    "url": "https://github.com/bblanchon/pdfium-binaries/releases/download/chromium/8152/pdfium-win-x64.tgz",
+    "size": 4037307,
+    "sha256": "cee2b0e9990bc67c0721774932961b9dbf2766046c10eec925acd4cfba6fdfe3"
+  },
+  "webview": {
+    "url": "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/199041ce-790a-4bbc-9111-b81b4c926e9f/MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+    "file": "WebView2RuntimeInstallerX64.exe",
+    "size": 214990032,
+    "sha256": "1be9d2926954d99dd62653a22efe813160fe0c40f1e422b44e6aaf5473f68eec",
+    "publisher": "Microsoft Corporation"
+  },
+  "gpuRuntime": {
+    "version": "b9222",
+    "profile": "windows-x64-vulkan",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b9222/llama-b9222-bin-win-vulkan-x64.zip",
+    "size": 32674762,
+    "sha256": "71d896955c0ae3576f6fd147f4ca197aa6a839ed7693651c14fe74014cef954e",
+    "license": "MIT"
+  },
+  "runtime": {
+    "version": "b9222",
+    "profile": "windows-x64-cpu",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b9222/llama-b9222-bin-win-cpu-x64.zip",
+    "size": 15905252,
+    "sha256": "a3484954606f3ade0937fc7fef86d434e35936db21264938c242bfced58a91b2",
+    "license": "MIT"
+  },
+  "pdfFont": {
+    "version": "ffebf8c1ee449e544955a7e813c54f9b73848eac",
+    "file": "NotoSans-Regular.ttf",
+    "url": "https://raw.githubusercontent.com/notofonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
+    "size": 569208,
+    "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+    "license": "OFL-1.1"
+  }
+}

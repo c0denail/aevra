@@ -1,0 +1,32 @@
+Aevra 0.1.0 - Third-party components
+
+Qwen3.5-9B by the Qwen Team, Alibaba Cloud: Apache License 2.0.
+Quantization: bartowski/Qwen_Qwen3.5-9B-GGUF, Q4_K_M.
+This distribution uses a quantized derivative of the original model weights.
+The matching f16 multimodal projector is included under the same Apache-2.0 terms.
+See Qwen-LICENSE.txt and https://huggingface.co/Qwen/Qwen3.5-9B.
+
+llama.cpp CPU and Vulkan runtimes by the ggml authors: MIT License.
+See llama.cpp-LICENSE.txt and https://github.com/ggml-org/llama.cpp.
+
+The application includes React (MIT), Tauri (MIT/Apache-2.0), and SQLite
+(public domain). Rust/JavaScript dependencies retain their own licenses.
+See DEPENDENCY-LICENSES.txt for the license inventory generated from the locked
+Rust and JavaScript dependency sets, including the Inter font (OFL-1.1).
+Math rendering uses KaTeX (MIT); its code and fonts are bundled locally.
+PDF equations use bundled MathJax 3.2.2 (Apache-2.0) SVG paths and resvg
+(MPL-2.0); no external TeX, browser download, or Python runtime is required.
+Legacy Word reading uses cfb and encoding_rs; standard DOCX equations are
+converted from Office Math markup. Their licenses are in the inventory.
+PDF reading/rendering uses PDFium build 8152 and pdfium-render. PDFium component
+licenses are included in PDFium-*.txt; Rust reader licenses are in the inventory.
+
+Microsoft Edge WebView2 is distributed under Microsoft's applicable terms.
+The Inno Setup installer embeds Microsoft's signed offline WebView2 installer.
+Microsoft Visual C++ runtime DLLs are redistributed app-locally from the licensed
+Visual Studio Build Tools redist directory. Microsoft terms apply to these files.
+
+Aevra is a project name; trademark clearance has not been performed.
+
+PDF export embeds Noto Sans Regular (SIL Open Font License 1.1).
+See NotoSans-LICENSE.txt. Font parsing uses ttf-parser (MIT/Apache-2.0).

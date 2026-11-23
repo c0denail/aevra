@@ -1,0 +1,9 @@
+# Aevra çalışma alanı tasarımı — 17 Kasım 2026
+
+Kullanıcının gönderdiği referansın beyaz yan menü, çok hafif lavanta zemin/ızgara, mor–turkuaz vurgular, yuvarlatılmış kartlar ve iki sütunlu çalışma alanı düzeni Aevra'ya uyarlandı. Referanstaki kişi, görev, takım, toplantı ve ilerleme verileri aktarılmadı; uygulamanın gerçek özellikleri ve kayıtları kullanıldı.
+
+Ana sayfa kişiselleştirilmiş selamlama, günün tarihi, beş çalışma alanı, hızlı başlangıçlar, arşivlenmemiş son üç konuşma, yanıt tarzı/çeviri dili/hafıza tercihleri ve yerel geçmiş bilgisini içerir. Kartlar ilgili çalışma alanını veya ayar bölümünü açar; başlangıç metni yalnız taslak olarak yerleştirilir, kendiliğinden gönderilmez. Profil kartı kişiselleştirmeyi, alt model durumu model ayarlarını açar. Ana sayfa ve sohbet ayrı görünümlerdir; yeni mesaj aynı kalıcı sohbet akışını kullanır.
+
+`HomeDashboard.tsx` kart içeriğini, `dashboard.css` düzenini taşır. `styles.css` ana pencere için ortak renk/değerleri tanımlar; koyu tema aynı değişkenlerle uygulanır. `research-browser.css` bu değişkenleri kullanır. Ayarlar önceki koyu düzeninde kalır; vurgu renkleri yeni mor palete uyarlandı. Google, Tauri komutları, model, SQLite, ekler ve PDF davranışı korunur. Arka plan ve süslemeler CSS/SVG'dir; internetten font/görsel yüklenmez.
+
+`pnpm test:ui` gerçek üretim React arayüzünü headless Chrome'da kontrol eder. Tarayıcıya özgü önizleme bandı, Tauri masaüstü penceresinin yerleşimini denemek için yalnız testte gizlenir; model hazırmış gibi gösterilmez. Ekran görüntüleri gerçek native uygulama yakalaması değildir. Test profili kullanıcı verilerine erişmez, harici sayfa isteklerini engeller. Ana sayfa, kişiselleştirme, Almanca hedef seçimi, araştırma paneli, küçültme ve koyu tema; yatay taşma, mesaj kutusunun görünürlüğü ve JavaScript hataları sınanır. Ekran görüntüleri ayrıca gözle incelenir. Temiz Windows VM ve gerçek model akışları bu görsel testin yerine geçmez.
